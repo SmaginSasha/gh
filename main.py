@@ -1,8 +1,8 @@
+from dotenv import load_dotenv
 import os
 import requests
 import argparse
 from urllib.parse import urlparse
-from dotenv import load_dotenv
 
 
 def shorten_link(headers, link):
@@ -43,11 +43,8 @@ if __name__ == "__main__":
     parser.add_argument('link', help='Описание аргумента')
     link = parser.parse_args().link
     token = os.getenv("BITLY_TOKEN")
-    print(token)
     headers = {"Authorization": f"Bearer {token}"}
     netloc_and_path = get_netloc_and_path(link)
-    print(link)
-    print(netloc_and_path)
     if is_bitlink(headers, netloc_and_path):
         print("Кликов по ссылке", count_clicks(headers, netloc_and_path))
     else:
