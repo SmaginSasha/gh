@@ -24,7 +24,7 @@ def count_clicks(headers, netloc_and_path):
 
 def is_bitlink(headers, netloc_and_path):
     bitlink_url = f'https://api-ssl.bitly.com/v4/bitlinks/{netloc_and_path}'
-    headers = {"Authorization": f'Bearer {token}'}
+    headers = {'Authorization': f'Bearer {token}'}
     response = requests.get(bitlink_url, headers=headers)
     return response.ok
 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Сокращение ссылок'
     )
-    parser.add_argument('link', help='Описание аргумента')
+    parser.add_argument('link', help='Надо вставить ссылку или битлинк')
     link = parser.parse_args().link
     token = os.getenv('BITLY_TOKEN')
     headers = {'Authorization': f'Bearer {token}'}
