@@ -31,7 +31,7 @@ def is_bitlink(headers, netloc_and_path):
 
 def get_netloc_and_path(link):
     parset_link = urlparse(link)
-    netloc_and_path = parset_link.netloc + parset_link.path
+    netloc_and_path = {0} + {1}.format(parset_link.netloc, parset_link.path)
     return netloc_and_path
 
 
