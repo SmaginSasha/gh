@@ -49,6 +49,6 @@ if __name__ == "__main__":
         print("Кликов по ссылке", count_clicks(headers, netloc_and_path))
     else:
         try:
-            print(f"Битлинк"{shorten_link(headers, link)})
+            print("Битлинк",shorten_link(headers, link))
         except requests.exceptions.HTTPError:
             print("Ваша ссылка неверна")
