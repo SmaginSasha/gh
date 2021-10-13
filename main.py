@@ -12,7 +12,7 @@ def shorten_link(headers, link):
     short_link = requests.post(shorten_link_url, headers=headers, json=body)
     short_link.raise_for_status()
     bitlink = short_link.json()["link"]
-    return f"Битлинк {bitlink}"
+    return bitlink
 
 
 def count_clicks(headers, netloc_and_path):
@@ -49,6 +49,6 @@ if __name__ == "__main__":
         print("Кликов по ссылке", count_clicks(headers, netloc_and_path))
     else:
         try:
-            print(shorten_link(headers, link))
+            print(f"Битлинк"{shorten_link(headers, link)})
         except requests.exceptions.HTTPError:
             print("Ваша ссылка неверна")
